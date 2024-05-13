@@ -1,0 +1,129 @@
+@font-face {
+	font-family: "Mark Pro Regular";
+	src: url("./assets/fonts/MarkPro-Regular.ttf") format("truetype");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Mark Pro Medium";
+	src: url("./assets/fonts/MarkPro-Medium.ttf") format("truetype");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Mark Pro Bold";
+	src: url("./assets/fonts/Mark-Pro-Bold.ttf") format("truetype");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Mark Pro Heavy";
+	src: url("./assets/fonts/Mark-Pro-Heavy.ttf") format("truetype");
+	font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: var(--mark-pro-regular);
+}
+
+body {
+	background-color: var(--bg-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+	text-wrap: pretty;
+}
+
+:root {
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	/* FONT SIZES */
+	--sz-xs: clamp(0.6944rem, 0.6577rem + 0.1836vi, 0.8rem);
+	--sz-s: clamp(0.8333rem, 0.7754rem + 0.2899vi, 1rem);
+	--sz-0: clamp(1rem, 0.913rem + 0.4348vi, 1.25rem);
+	--sz-1: clamp(1.2rem, 1.0739rem + 0.6304vi, 1.5625rem);
+	--sz-2: clamp(1.44rem, 1.2615rem + 0.8924vi, 1.9531rem);
+	--sz-3: clamp(1.728rem, 1.4799rem + 1.2407vi, 2.4414rem);
+	--sz-4: clamp(2.0736rem, 1.7334rem + 1.7011vi, 3.0518rem);
+	--sz-5: clamp(2.4883rem, 2.027rem + 2.3067vi, 3.8147rem);
+	--sz-6: clamp(2.986rem, 2.366rem + 3.0998vi, 4.7684rem);
+	--sz-7: clamp(3.5832rem, 2.7563rem + 4.1344vi, 5.9605rem);
+	--sz-8: clamp(4.2998rem, 3.2039rem + 5.4796vi, 7.4506rem);
+
+	/* FONT FAMILIES */
+	--mark-pro-regular: "Mark Pro Regular", sans-serif;
+	--mark-pro-medium: "Mark Pro Medium", sans-serif;
+	--mark-pro-bold: "Mark Pro Bold", sans-serif;
+	--mark-pro-heavy: "Mark Pro Heavy", sans-serif;
+
+	/* COLOR's PALETTE */
+	--white: rgb(255, 255, 255);
+	--glassy-white: rgba(255, 255, 255, 0.8);
+	--warm-gray: rgb(228, 225, 220);
+	--cool-gray-1: rgb(136, 138, 141);
+	--cool-gray-2: rgba(136, 138, 141, 0.25);
+	--cool-gray-3: rgba(136, 138, 141, 0.1);
+	--black: rgb(0, 0, 0);
+	--glassy-black: rgba(0, 0, 0, 0.8);
+	--pantone-368: rgb(128, 195, 66);
+	--pantone-362: rgb(80, 150, 66);
+	--pantone-356: rgb(10, 104, 54);
+
+	/* RADIUS */
+	--radius: var(--sz-2);
+
+	/* ANIMATIONS */
+	--pulse-fast: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	--pulse-slow: pulse 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	--bg-pulse-fast: bg-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	--bg-pulse-slow: bg-pulse 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+	50% {
+		opacity: 0.5;
+	}
+}
+
+@keyframes bg-pulse {
+	50% {
+		backdrop-filter: brightness(0.5);
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--clr-pair-1: var(--white);
+		--clr-pair-2: var(--warm-gray);
+		--clr-pair-3: var(--black);
+		--font-color: var(--black);
+		--glassy: var(--glassy-white);
+		--skeleton-clr: var(--warm-gray);
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--clr-pair-1: var(--black);
+		--clr-pair-2: var(--cool-gray-1);
+		--clr-pair-3: var(--white);
+		--font-color: var(--cool-gray-1);
+		--glassy: var(--glassy-black);
+		--skeleton-clr: var(--cool-gray-2);
+	}
+}

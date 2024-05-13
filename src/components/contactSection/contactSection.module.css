@@ -1,0 +1,160 @@
+.contact_section {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--clr-pair-1);
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
+}
+
+.card_wrapper {
+	width: 100%;
+	height: 100%;
+	display: grid;
+	place-items: center;
+}
+
+.contact_card {
+	width: min(80%, 800px);
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: var(--radius);
+}
+
+.card_header {
+	font-weight: bold;
+	font-family: var(--mark-pro-bold);
+	font-size: var(--sz-6);
+	color: var(--pantone-368);
+	color: var(--font-color);
+	line-height: 1;
+}
+
+.card_text {
+	padding: var(--sz-2) 0 var(--sz-2);
+	color: var(--font-color);
+	font-size: var(--sz-2);
+	line-height: 1.4;
+}
+
+.calendly_btn {
+	cursor: pointer;
+	font-size: var(--sz-0);
+	font-weight: bold;
+	font-family: var(--mark-pro-medium);
+	background-color: rgb(128, 195, 66, 0.25);
+	color: var(--clr-pair-3);
+	padding: var(--sz-xs);
+	border: 1.5px solid var(--pantone-368);
+	border-radius: var(--radius);
+}
+
+.calendly_btn:hover {
+	background-color: var(--pantone-368);
+	color: var(--clr-pair-1);
+}
+
+.img_wrapper {
+	display: none;
+}
+
+.bg_img {
+	display: none;
+}
+
+.hide {
+	opacity: 0;
+	filter: blur(10px);
+	transition: all 500ms ease-out;
+}
+
+.show {
+	opacity: 1;
+	filter: blur(0);
+	transition: all 500ms ease-in;
+}
+
+@media screen and (orientation: landscape) {
+	.contact_section {
+		height: 100%;
+		padding: 0;
+		display: flex;
+		flex-direction: row;
+	}
+
+	.card_wrapper {
+		width: 50%;
+	}
+
+	.contact_card {
+		width: min(80%, 800px);
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		border-radius: var(--radius);
+	}
+
+	.card_header {
+		font-size: var(--sz-3);
+	}
+
+	.card_text {
+		padding: var(--sz-0) 0 var(--sz-0);
+		font-size: var(--sz-0);
+	}
+
+	.calendly_btn {
+		font-size: var(--sz-s);
+		padding: calc(var(--sz-xs) / 1.25);
+	}
+
+	.img_wrapper {
+		display: block;
+		width: 50%;
+		height: 100%;
+		background-color: var(--skeleton-clr);
+	}
+
+	.bg_img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		animation: var(--bg-pulse-slow);
+	}
+
+	@media screen and (width >= 1024px) {
+		.card_header {
+			font-size: var(--sz-5);
+		}
+
+		.card_text {
+			padding: var(--sz-1) 0 var(--sz-1);
+			font-size: var(--sz-1);
+		}
+	}
+
+	@media screen and (width >= 1920px) {
+		.card_header {
+			font-size: var(--sz-7);
+		}
+
+		.card_text {
+			padding: var(--sz-3) 0 var(--sz-3);
+			font-size: var(--sz-3);
+		}
+
+		.calendly_btn {
+			font-size: var(--sz-0);
+			padding: var(--sz-xs);
+		}
+	}
+}
