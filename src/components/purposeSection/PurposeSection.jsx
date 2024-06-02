@@ -1,4 +1,6 @@
+import PropTypes from "prop-types";
 import styles from "./purposeSection.module.css";
+import { useInView } from "react-intersection-observer";
 import card_img_one_mobile from "../../assets/imgs/farms/rooftop_farm_mobile.webp";
 import card_img_one_tablet from "../../assets/imgs/farms/rooftop_farm_tablet.webp";
 import card_img_one_desktop from "../../assets/imgs/farms/rooftop_farm_desktop.webp";
@@ -9,8 +11,7 @@ import card_img_three_mobile from "../../assets/imgs/products/products_mobile.we
 import card_img_three_tablet from "../../assets/imgs/products/products_tablet.webp";
 import card_img_three_desktop from "../../assets/imgs/products/products_desktop.webp";
 
-import { useInView } from "react-intersection-observer";
-export default function PurposeSection() {
+export default function PurposeSection({ lang }) {
 	const cards = [
 		{
 			observerHook: useInView(),
@@ -19,8 +20,10 @@ export default function PurposeSection() {
 				tablet: card_img_one_tablet,
 				desktop: card_img_one_desktop,
 			},
-			title: "What we do",
-			txt: "We reinvent urban agriculture by providing a sustainable and efficient way to deliver hyper-local, nutritious and affordable food to people in cities.",
+			titleEn: "What we do",
+			titleEs: "¿Qué hacemos?",
+			txtEn: "We reinvent urban agriculture by providing a sustainable and efficient way to deliver hyper-local, nutritious and affordable food to people in cities.",
+			txtEs: "Reinventamos la agricultura urbana ofreciendo una forma sostenible y eficiente de llevar alimentos hiperlocales, nutritivos y asequibles a las personas de las ciudades.",
 		},
 		{
 			observerHook: useInView(),
@@ -29,8 +32,10 @@ export default function PurposeSection() {
 				tablet: card_img_two_tablet,
 				desktop: card_img_two_desktop,
 			},
-			title: "How we do it",
-			txt: "Our automated inflatable farms, designed to utilize idle spaces in cities, enable cultivation regardless of the season and weather.",
+			titleEn: "How we do it",
+			titleEs: "¿Cómo lo hacemos?",
+			txtEn: "Our automated inflatable farms, designed to utilize idle spaces in cities, enable cultivation regardless of the season and weather.",
+			txtEs: "Nuestros invernaderos inflables automatizados, diseñados para aprovechar los espacios ociosos de las ciudades, permiten cultivar independientemente de la estación y los factores climáticos.",
 		},
 		{
 			observerHook: useInView(),
@@ -39,8 +44,10 @@ export default function PurposeSection() {
 				tablet: card_img_three_tablet,
 				desktop: card_img_three_desktop,
 			},
-			title: "What we achieve",
-			txt: "Our farms can provide fresh and premium food at affordable prices to anyone, regardless of where they live or how much they earn.",
+			titleEn: "What we achieve",
+			titleEs: "¿Qué logramos?",
+			txtEn: "Our farms can provide fresh and premium food at affordable prices to anyone, regardless of where they live or how much they earn.",
+			txtEs: "Nuestros invernaderos proveen alimentos frescos y de primera calidad a precios asequibles para todos, sin importar dónde vivan o cuánto ganen.",
 		},
 	];
 
@@ -75,8 +82,12 @@ export default function PurposeSection() {
 							ref={card.observerHook.ref}
 							className={styles.invisible_ref}></div>
 						<div className={styles.card_txt_wrapper}>
-							<h2 className={styles.card_title}>{card.title}</h2>
-							<p className={styles.card_txt}>{card.txt}</p>
+							<h2 className={styles.card_title}>
+								{lang ? card.titleEn : card.titleEs}
+							</h2>
+							<p className={styles.card_txt}>
+								{lang ? card.txtEn : card.txtEs}
+							</p>
 						</div>
 					</article>
 				))}
@@ -95,3 +106,7 @@ export default function PurposeSection() {
 		</section>
 	);
 }
+
+PurposeSection.propTypes = {
+	lang: PropTypes.bool,
+};

@@ -1,12 +1,12 @@
+import PropTypes from "prop-types";
 import styles from "./videoSection.module.css";
+import { useInView } from "react-intersection-observer";
 import reel_720 from "../../assets/videos/reels/tower_reel_720.webm";
 import demo_720 from "../../assets/videos/demos/short_demo_720.webm";
 import demo_1080 from "../../assets/videos/demos/short_demo_1080.webm";
 import poster from "../../assets/imgs/farms/tower_closeup_poster.webp";
 
-import { useInView } from "react-intersection-observer";
-
-export default function VideoSection() {
+export default function VideoSection({ lang }) {
 	const txt = useInView();
 
 	return (
@@ -17,7 +17,9 @@ export default function VideoSection() {
 				<p
 					ref={txt.ref}
 					className={styles.txt}>
-					480,000 plants per year, in less space than a tennis court
+					{lang
+						? "480,000 plants per year, in less space than a tennis court"
+						: "480.000 plantas por año, en menos espacio que una cancha de tenis"}
 				</p>
 			</div>
 
@@ -52,3 +54,7 @@ export default function VideoSection() {
 		</section>
 	);
 }
+
+VideoSection.propTypes = {
+	lang: PropTypes.bool,
+};

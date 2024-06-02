@@ -144,12 +144,12 @@
 
 	@media screen and (width >= 1920px) {
 		.card_header {
-			font-size: var(--sz-7);
+			font-size: calc(var(--sz-7) / 1.2);
 		}
 
 		.card_text {
-			padding: var(--sz-3) 0 var(--sz-3);
-			font-size: var(--sz-3);
+			padding: var(--sz-2) 0 var(--sz-2);
+			font-size: var(--sz-2);
 		}
 
 		.calendly_btn {

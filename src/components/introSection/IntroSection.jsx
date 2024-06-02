@@ -1,15 +1,22 @@
+import PropTypes from "prop-types";
 import styles from "./introSection.module.css";
+import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import logo_primary_mobile from "../../assets/imgs/brand/logo/bgless_logo_primary_mobile.webp";
 import logo_primary_desktop from "../../assets/imgs/brand/logo/bgless_logo_primary_desktop.webp";
 import logo_secondary_mobile from "../../assets/imgs/brand/logo/bgless_logo_secondary_mobile.webp";
 import logo_secondary_desktop from "../../assets/imgs/brand/logo/bgless_logo_secondary_desktop.webp";
+import bg_img from "../../assets/imgs/farms/tower_closeup_poster.webp";
 import reel_720 from "../../assets/videos/reels/farm_reel_720.webm";
 import reel_1080 from "../../assets/videos/reels/farm_reel_1080.webm";
 import poster from "../../assets/imgs/farms/towers_poster.webp";
 
-export default function IntroSection() {
+export default function IntroSection({ handleIntroSectionVisibility }) {
 	const logo = useInView();
+
+	useEffect(() => {
+		handleIntroSectionVisibility(logo.inView);
+	}, [logo.inView, handleIntroSectionVisibility]);
 
 	return (
 		<section
@@ -35,6 +42,14 @@ export default function IntroSection() {
 				className={`${styles.bg_wrapper} ${
 					logo.inView ? styles.show : styles.hide
 				}`}>
+				<img
+					loading="lazy"
+					width="100%"
+					height="100%"
+					className={styles.bg_img}
+					src={bg_img}
+					alt="background image of a farm's tower"
+				/>
 				<video
 					loading="lazy"
 					className={`${styles.bg_video}`}
@@ -62,3 +77,7 @@ export default function IntroSection() {
 		</section>
 	);
 }
+
+IntroSection.propTypes = {
+	handleIntroSectionVisibility: PropTypes.func,
+};

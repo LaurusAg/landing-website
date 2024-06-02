@@ -225,11 +225,11 @@
 
 	@media screen and (width >= 1920px) {
 		.card_title {
-			font-size: var(--sz-6);
+			font-size: var(--sz-5);
 		}
 
 		.card_txt {
-			font-size: var(--sz-3);
+			font-size: var(--sz-2);
 		}
 	}
 }

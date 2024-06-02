@@ -1,11 +1,12 @@
+import PropTypes from "prop-types";
 import styles from "./contactSection.module.css";
 import { PopupButton } from "react-calendly";
+import { useInView } from "react-intersection-observer";
 import bg_img_mobile from "../../assets/imgs/farms/seedling_tray_mobile.webp";
 import bg_img_tablet from "../../assets/imgs/farms/seedling_tray_tablet.webp";
 import bg_img_desktop from "../../assets/imgs/farms/seedling_tray_desktop.webp";
-import { useInView } from "react-intersection-observer";
 
-export default function ContactSection() {
+export default function ContactSection({ lang }) {
 	const txt = useInView();
 	return (
 		<section
@@ -14,21 +15,23 @@ export default function ContactSection() {
 			<div className={styles.card_wrapper}>
 				<article className={styles.contact_card}>
 					<h1 className={styles.card_header}>
-						{"Let's pioneer the future of agriculture, together"}
+						{lang
+							? "Together, let's pioneer the future of agriculture"
+							: "Juntos, seamos pioneros en el futuro de la agricultura"}
 					</h1>
 					<p
 						ref={txt.ref}
 						className={styles.card_text}>
-						Join us today and create a future where fresh food is
-						accessible to all, regardless of where they live or how
-						much they make.
+						{lang
+							? "Join us today and create a future where healthy eating is accessible to everyone."
+							: "Sumate y creá un futuro donde la alimentación saludable sea una realidad de todos."}
 					</p>
 
 					<PopupButton
 						className={styles.calendly_btn}
 						url="https://calendly.com/nicobisso/intro-call"
 						rootElement={document.getElementById("root")}
-						text="Schedule a call!"
+						text={lang ? "Schedule a call!" : "¡Contactanos!"}
 					/>
 				</article>
 			</div>
@@ -49,3 +52,7 @@ export default function ContactSection() {
 		</section>
 	);
 }
+
+ContactSection.propTypes = {
+	lang: PropTypes.bool,
+};

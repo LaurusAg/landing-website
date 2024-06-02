@@ -1,5 +1,5 @@
+import PropTypes from "prop-types";
 import styles from "./conclusionSection.module.css";
-
 import { useInView } from "react-intersection-observer";
 
 import one_arch from "../../assets/imgs/brand/logoArchs/bgless_arch_400.webp";
@@ -8,7 +8,7 @@ import three_archs from "../../assets/imgs/brand/logoArchs/bgless_three_archs_40
 import full_archs from "../../assets/imgs/brand/logoArchs/bgless_full_archs_400.webp";
 import bg_img_mobile from "../../assets/imgs/farms/rooftop_shopping_mobile.webp";
 import bg_img_desktop from "../../assets/imgs/farms/rooftop_shopping_desktop.webp";
-export default function ConclusionSection() {
+export default function ConclusionSection({ lang }) {
 	const first_card = useInView();
 	const second_card = useInView();
 	const third_card = useInView();
@@ -37,14 +37,27 @@ export default function ConclusionSection() {
 								alt="logo's small arch"
 							/>
 						</div>
-						<h2 className={styles.title}>
-							A{" "}
-							<span
-								className={`${styles.dark_green} ${styles.strong}`}>
-								new paradigm
-							</span>{" "}
-							in the production and distribution of food
-						</h2>
+						{lang ? (
+							<h2 className={styles.title}>
+								{"A "}
+								<span
+									className={`${styles.dark_green} ${styles.strong}`}>
+									{"new paradigm"}
+								</span>
+								{" in the production and distribution of food"}
+							</h2>
+						) : (
+							<h2 className={styles.title}>
+								{"Un "}
+								<span
+									className={`${styles.dark_green} ${styles.strong}`}>
+									{"nuevo paradigma"}
+								</span>
+								{
+									" en la producción y distribución de alimentos"
+								}
+							</h2>
+						)}
 					</article>
 					<article className={styles.article}>
 						<div
@@ -63,14 +76,27 @@ export default function ConclusionSection() {
 								alt="logo's medium arch"
 							/>
 						</div>
-						<h2 className={styles.title}>
-							The{" "}
-							<span
-								className={`${styles.green} ${styles.strong}`}>
-								necessary innovation
-							</span>{" "}
-							to address environmental issues
-						</h2>
+						{lang ? (
+							<h2 className={styles.title}>
+								{"The "}
+								<span
+									className={`${styles.green} ${styles.strong}`}>
+									{"necessary innovation"}
+								</span>
+								{" to address environmental issues"}
+							</h2>
+						) : (
+							<h2 className={styles.title}>
+								{"La "}
+								<span
+									className={`${styles.green} ${styles.strong}`}>
+									{"innovación necesaria"}
+								</span>
+								{
+									" para hacer frente a las problemáticas ambientales"
+								}
+							</h2>
+						)}
 					</article>
 					<article className={styles.article}>
 						<div
@@ -89,24 +115,45 @@ export default function ConclusionSection() {
 								alt="logo's big arch arch"
 							/>
 						</div>
-						<h2 className={styles.title}>
-							Close to people, providing{" "}
-							<span
-								className={`${styles.light_green} ${styles.strong}`}>
-								accessible
-							</span>
-							,{" "}
-							<span
-								className={`${styles.light_green} ${styles.strong}`}>
-								fresh
-							</span>{" "}
-							and{" "}
-							<span
-								className={`${styles.light_green} ${styles.strong}`}>
-								ready
-							</span>{" "}
-							to consume food
-						</h2>
+						{lang ? (
+							<h2 className={styles.title}>
+								{"Close to people, providing "}
+								<span
+									className={`${styles.light_green} ${styles.strong}`}>
+									{"accessible"}
+								</span>
+								{", "}
+								<span
+									className={`${styles.light_green} ${styles.strong}`}>
+									{"fresh "}
+								</span>
+								{"and "}
+								<span
+									className={`${styles.light_green} ${styles.strong}`}>
+									{"ready to consume "}
+								</span>
+								{"food"}
+							</h2>
+						) : (
+							<h2 className={styles.title}>
+								{"Cerca de las personas, con alimentos "}
+								<span
+									className={`${styles.light_green} ${styles.strong}`}>
+									{"accesibles"}
+								</span>
+								{", "}
+								<span
+									className={`${styles.light_green} ${styles.strong}`}>
+									{"frescos"}
+								</span>
+								{" y "}
+								<span
+									className={`${styles.light_green} ${styles.strong}`}>
+									{"listos"}
+								</span>
+								{" para consumir"}
+							</h2>
+						)}
 					</article>
 					<article className={styles.article}>
 						<div
@@ -125,11 +172,23 @@ export default function ConclusionSection() {
 								alt="full logo with all it's archs"
 							/>
 						</div>
-						<h2 className={styles.title}>
-							Born to set a{" "}
-							<span className={styles.strong}>new standard</span>{" "}
-							in the food system
-						</h2>
+						{lang ? (
+							<h2 className={styles.title}>
+								{"Born to set a "}
+								<span className={styles.strong}>
+									{"new standard"}
+								</span>
+								{" in the food system"}
+							</h2>
+						) : (
+							<h2 className={styles.title}>
+								{"Nacemos para generar un "}
+								<span className={styles.strong}>
+									{"nuevo estándar"}
+								</span>
+								{" en el sistema alimentario"}
+							</h2>
+						)}
 					</article>
 				</div>
 				<div className={styles.stepper}>
@@ -173,3 +232,7 @@ export default function ConclusionSection() {
 		</section>
 	);
 }
+
+ConclusionSection.propTypes = {
+	lang: PropTypes.bool,
+};
