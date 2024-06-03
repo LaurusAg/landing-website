@@ -58,11 +58,7 @@
 	display: none;
 }
 
-@media screen and (orientation: landscape) {
-	.hero_section {
-		flex-direction: row;
-	}
-
+@media screen and (orientation: portrait) and (width > 500px) {
 	.bg_img {
 		display: none;
 	}
@@ -73,6 +69,12 @@
 		height: 100%;
 		object-fit: cover;
 		animation: var(--bg-pulse-slow);
+	}
+}
+
+@media screen and (orientation: landscape) {
+	.hero_section {
+		flex-direction: row;
 	}
 
 	.logo_wrapper {
@@ -92,5 +94,19 @@
 	.bg_wrapper {
 		width: 50%;
 		height: 100%;
+	}
+
+	@media (width >= 1024px) {
+		.bg_img {
+			display: none;
+		}
+
+		.bg_video {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			animation: var(--bg-pulse-slow);
+		}
 	}
 }

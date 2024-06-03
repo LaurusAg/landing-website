@@ -1,5 +1,6 @@
 {
 	"name": "laurus-landing-website",
+	"homepage": "https://laurusag.tech/",
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
