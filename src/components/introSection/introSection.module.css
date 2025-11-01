@@ -38,7 +38,8 @@
 
 .logo {
 	object-fit: cover;
-	aspect-ratio: 22/15;
+	/* aspect-ratio: 22/15; */
+	/* aspect-ratio: 100 / 57; */
 }
 
 .bg_wrapper {

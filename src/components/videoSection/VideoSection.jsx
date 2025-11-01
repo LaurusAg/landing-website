@@ -18,8 +18,8 @@ export default function VideoSection({ lang }) {
 					ref={txt.ref}
 					className={styles.txt}>
 					{lang
-						? "480,000 plants per year, in less space than a tennis court"
-						: "480.000 plantas por año, en menos espacio que una cancha de tenis"}
+						? "700,000 plants per year, in less space than a tennis court"
+						: "700.000 plantas por año, en menos espacio que una cancha de tenis"}
 				</p>
 			</div>
 

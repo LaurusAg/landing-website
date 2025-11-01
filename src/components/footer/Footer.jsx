@@ -9,10 +9,10 @@ export default function Footer() {
 			<div className={styles.footer_wrapper}>
 				<SocialMediaNavBar props={{ styles }} />
 				<span className={styles.txt}>
-					San Martín, 750, Buenos Aires, CABA 1004
+					Los Angeles, CA
 				</span>
 				<span className={styles.txt}>
-					Copyright © 2024 LA Tech S.A.
+					Copyright © 2025
 				</span>
 			</div>
 		</section>
